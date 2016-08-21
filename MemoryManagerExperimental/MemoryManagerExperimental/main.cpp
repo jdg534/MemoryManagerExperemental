@@ -3,6 +3,7 @@
 #include <iostream>
 
 
+
 struct foo
 {
 	//foo()
@@ -35,6 +36,8 @@ struct foo
 	int bar;
 };
 
+typedef char twoChars[2];
+
 int main()
 {
 	using namespace std;
@@ -42,9 +45,29 @@ int main()
 	//foo b();
 	foo c(3);
 
+	foo * d = new foo;
+	foo * e = new foo(5);
+
 	cout << "a.bar = " << a << endl;
 	//cout << "b.bar = " << b << endl;
 	cout << "c.bar = " << c << endl;
+
+	cout << "d->bar = " << *d << endl;
+	cout << "e->bar = " << *e << endl;
+
+	char oneChar = 'A';
+
+	twoChars twoChar;
+	twoChar[0] = 'B';
+	twoChar[2] = 'C';
+
+	int * aPointer;
+
+	cout << "Size of 1 char " << sizeof(oneChar) << endl;
+	cout << "Size of twoChars type " << sizeof(twoChar) << endl;
+	cout << "Size of two char variables " << sizeof(oneChar) * 2 << endl;
+	cout << "Size of a pointer " << sizeof(aPointer) << endl;
+
 
 	cout << "DONE:";
 	cin.get();
