@@ -2,7 +2,7 @@
 
 #include <iostream>
 
-
+#include "SimpleHeap.h" // code this later
 
 struct foo
 {
@@ -59,7 +59,7 @@ int main()
 
 	twoChars twoChar;
 	twoChar[0] = 'B';
-	twoChar[2] = 'C';
+	twoChar[1] = 'C';
 
 	int * aPointer;
 
