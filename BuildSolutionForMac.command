@@ -1,24 +1,8 @@
-#!/bin/sh
-
-#  BuildSolutionForMac.sh
-#  
-#
-#  Created by Josh Gibson on 30/10/2016.
-#
-
-#  This line sets the command file to execute from the folder the command file is stored in
-#  cd 'dirname $0'
-
-#RunFromDir="'dirname \"$0\"'"
-
-#echo "Changing directory to $RunFromDir"
-
+# change the current directory to the directory that this script is run from
 cd $(dirname "$0")
 
 mkdir Build
-
 cd Build
 
-pwd
-
+# Run cmake from inside of build or the solution gets placed on the root of the project
 cmake ../ -G "Xcode"
