@@ -4,7 +4,9 @@
 #include <cstdio>
 
 #define FREE_MEMORY 0xFFFFFFFF
+#define START_OF_HEAP 0xBADF00D
 #define ALLOCATION_GUARD 0xDEADCODE
+#define END_OF_HEAP 0xDEADBEEF
 
 // 5MB heap
 #define HEAP_SIZE 1024 * 1024 * 5
@@ -19,17 +21,17 @@ struct AllocationChunk
 
 class Heap
 {
-private:
+public:
 	static Heap * getInstance();
-	Heap()
-	{
-	}
+	static void shutdown();
 
-	~Heap()
-	{
-	}
-	char m_rawBytes[HEAP_SIZE];
-	void * m_startingAdress;
+	
+private:
+	void initialise(void * startingAdress, char * bufferAdress);
+	void shutdownPrivate();
+	char * m_rawBytes; //  this is to be treated as a buffer
+	void * m_startingAdress; // kind of a version of the "this" pointer. this member variable might not be needed
+	void * m_nextFreeMemoryAddress;
 };
 
 

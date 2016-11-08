@@ -17,5 +17,7 @@ int main()
 
 	delete[] someInts;
 
+	Heap::shutdown();
+
 	return 0;
 }
